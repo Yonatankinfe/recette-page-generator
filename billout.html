@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body{
+            background-color: gray;
+            color:white;
+
+        }
+        .back
+        {
+           background-color: white;
+           color: black;
+           width: 40%;
+        
+
+        }
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+
+
+        }
+        #print
+        {
+            color : blue;
+        } 
+        input{
+            border: 2px;
+        }
+       
+    
+    </style>
+</head>
+<body>
+
+<center><h1>KENOy</h1></center>
+<center><div class = "back"><center>
+    <hr/><br/>
+    <pre>Ticket ID        2345345</pre>
+    <pre>Entity ID        5345345</pre>
+    <p>Printed at       </p>     
+     <div class ="time">
+        <div class="date">hi</div>
+    </div>
+    <hr/>
+<h2>KENO</h2>
+ Frist number:
+<input type="text" name"firstnumber" size ="10"/>
+<br/>
+       Second number:
+       <input type="text" name"secondnumber" size ="10"/>
+       <br/>
+       Threed number:
+       <input type="text" name"threednumber" size ="10"/>
+       <br/>
+       <br/>
+       <table>
+        <tr>
+            <td><b>Total stake &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  birr 
+            <input type="text" name"threednumber" size ="7"/></td>
+        </tr> 
+            <tr>
+                <td><b>Max. payout per ticket &nbsp &nbsp birr
+                    <input type="text" name"threednumber" size ="7"/></td>
+            </tr>
+            <tr>
+                <td><b>Maximum winning payout    birr
+                    <input type="text" name"threednumber" size ="5"/>
+                </td>
+            </tr>
+       </table>
+       <img src = "download.png">
+       <button onclick ="window.print()"></button>
+    
+
+       </div></center></center>
+       <br/>
+       <br/>
+<center><img id = "print"></img>
+</center>
+<script>
+    const printBtn =  document.getElementById('print');
+    printBtn.addEventListener('click',function() {
+       print();
+    } )
+    var date = new Date();
+    const todaydate = document.querySelector('.date');
+    const todayday = document.querySelector('.day');
+    const todaytime = document.querySelector('.time');
+    const noofday = ["sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+    function printDate(){
+        var date = new Date();
+        var day = date.getDate();
+        var month = date.getMonth()+1;
+        var year = date.getFullYear();
+        todaydate.innerHTML = day + "/" + month + "/" + year;
+    }
+   printDate();
+
+   function printTime(){
+    var date = new date();
+    var hour = date.getHours();
+    var min = date.getMinutes();
+    var sec = data.getSeconds();
+    var peroid = "AM";
+    if(hour == 0)
+    {
+        hour = 12;
+    }
+    if(hour > 12){
+        hour = hour - 12//if hour 13 ==> hour  = 13 = 12 = 1
+        peroid = "pm";
+    }
+    if(hour < 10){
+        hour = "0" + hour;
+    }
+    if(min < 10)
+    {
+        min ="0 "+ min;
+    }
+    if(sec < 10)
+    {
+        sec = "0" + sec;
+    }
+    var time = hour + ":" + min +":"+sec+" "+ peroid;
+    document.querySelector(".time").innerHTML = time;
+    setTimeout(printTime,1000);
+   }
+   printTime();
+    
+    
+</script>
+</body>
+</html>
